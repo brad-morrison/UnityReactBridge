@@ -89,6 +89,9 @@ export default UnityComponent;
 const Container = styled.div`
   text-align: center;
   font-family: "Arial", sans-serif;
+  h2 {
+    margin: 40px;
+  }
 `;
 
 const Content = styled.div`
