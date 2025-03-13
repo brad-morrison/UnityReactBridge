@@ -29,13 +29,13 @@ const UnityComponent = () => {
 
     // Load Unity WebGL script
     const script = document.createElement("script");
-    script.src = "/Build/FruitBuild.loader.js"; // Ensure path matches build
+    script.src = "/Build/FruitBuild-compressed.loader.js"; // Ensure path matches build
     script.onload = () => {
       (window as any)
         .createUnityInstance(canvas, {
-          dataUrl: "/Build/FruitBuild.data",
-          frameworkUrl: "/Build/FruitBuild.framework.js",
-          codeUrl: "/Build/FruitBuild.wasm",
+          dataUrl: "/Build/FruitBuild-compressed.data.gz",
+          frameworkUrl: "/Build/FruitBuild-compressed.framework.js.gz",
+          codeUrl: "/Build/FruitBuild-compressed.wasm.gz",
           streamingAssetsUrl: "/StreamingAssets",
           companyName: "YourCompany",
           productName: "YourGame",
