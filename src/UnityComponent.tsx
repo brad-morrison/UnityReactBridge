@@ -14,6 +14,7 @@ const UnityComponent = () => {
     grape: 0,
     orange: 0,
   });
+  const [amount, setAmount] = useState<number>(0);
 
   useEffect(() => {
     if (!unityRef.current) return;
@@ -51,13 +52,14 @@ const UnityComponent = () => {
 
     document.body.appendChild(script);
 
+    // Listen for Unity events
     (window as any).FruitClicked = (name: string) => {
       setInventory((prevInventory) => ({
         ...prevInventory,
         [name]: (prevInventory[name] || 0) + 1,
       }));
+      setAmount((prevAmount) => prevAmount + 50);
     };
-
   }, []);
 
   // Send React command to run Unity function
@@ -67,17 +69,38 @@ const UnityComponent = () => {
     }
   };
 
+  // Send React command to run Unity function
+  const sellFruit = () => {
+    if ((window as any).unityInstance) {
+      (window as any).unityInstance.SendMessage(
+        "coins",
+        "UpdateCoinDisplay",
+        amount.toString()
+      );
+    }
+    setAmount(0);
+    // reset inventory
+    setInventory({
+      pear: 0,
+      tomato: 0,
+      grape: 0,
+      orange: 0,  
+    });
+};
+
   return (
     <Container>
       <h2>React ↔️ Unity WebGL</h2>
       <Content>
         <div
           ref={unityRef}
-          style={{ width: "500px", height: "800px", margin: "auto" }}
+          style={{ width: "550px", height: "800px", margin: "auto" }}
         />
         <Interface>
           <button onClick={spawnFruit}>Spawn Fruit</button>
           <Inventory inventory={inventory} />
+          <h3>Value of fruit: {amount}</h3>
+          <button onClick={sellFruit}>Sell Fruit</button>
         </Interface>
       </Content>
     </Container>
