@@ -1,0 +1,14 @@
+/Build/FruitBuild-compressed.framework.js.gz
+  Content-Encoding: gzip
+  Content-Type: application/javascript
+
+/Build/FruitBuild-compressed.data.gz
+  Content-Encoding: gzip
+  Content-Type: application/octet-stream
+
+/Build/FruitBuild-compressed.wasm.gz
+  Content-Encoding: gzip
+  Content-Type: application/wasm
+
+/Build/FruitBuild.loader.js
+  Content-Type: application/javascript

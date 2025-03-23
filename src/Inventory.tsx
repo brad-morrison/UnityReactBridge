@@ -42,7 +42,7 @@ const Inventory: React.FC<InventoryProps> = ({ inventory }) => {
             ) : (
               placeholderIcon
             )}
-            {count > 1 && <Badge>{count}</Badge>}
+            {count && count > 1 && <Badge>{count}</Badge>}
           </BagSlot>
         ))}
       </BagGrid>
