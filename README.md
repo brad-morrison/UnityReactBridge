@@ -1,4 +1,13 @@
-# Integrating Unity WebGL with React
+# Unity 🤝 React Bridge - Integrating Unity WebGL with React
+
+## Example Project - Fruit Seller
+
+Live Example: https://unityreactbridge.netlify.app/
+
+This repo holds an example project of a React Web App that contains a Unity WebGL build. Fruit is dropped in the Unity app via 
+a React button (React -> Unity communication example). When a fruit is clicked, the item is added to the React Inventory (Unity -> 
+React communication example). To demonstrate passing properties, when the 'Sell Fruit' button is clicked in React, the value updates 
+in the Unity app.
 
 ## Overview
 
@@ -175,6 +184,7 @@ useEffect(() => {
 
 - Check the **file paths** for `loader.js`, `framework.js`, and `wasm.gz`.
 - Open the browser console (`F12` > Console) for errors.
+- The server may not be handling compression correctly. See header files in example project. These tell the server to serve the compressed Unity files correctly.
 
 ### **2. Messages Not Sending?**
 
